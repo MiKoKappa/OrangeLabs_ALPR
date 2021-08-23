@@ -6,3 +6,6 @@ The repository contains those files:
 - Python script for recognizing and OCR of licence plates
 - Node-Red flow to import
 - Step-by-step documentation to set up your own enviroment
+
+## Presentation
+A short presentation of implemented algorythm is available [here](https://github.com/MiKoKappa/OrangeLabs_ALPR_Presentation)
