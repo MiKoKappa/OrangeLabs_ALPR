@@ -4,7 +4,7 @@ import numpy as np
 import gpyocr
 from PIL import Image
 print("--- Starting Computer Vision ---")
-plateCascade = cv2.CascadeClassifier("/home/pi/haarcascade_russian_plate_number.xml")
+plateCascade = cv2.CascadeClassifier("/home/pi/haarcascade_eu_plate_number.xml")
 color = (255,120,255)
 arg = float(sys.argv[1])
 bbox_x = float(sys.argv[2])
