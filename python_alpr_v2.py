@@ -13,7 +13,7 @@ bbox_h = float(sys.argv[5])
 outText = ""
 
 def getText(filename):
-	outText = gpyocr.tesseract_ocr('morph.png',psm=7)[0]
+	outText = gpyocr.tesseract_ocr(filename,psm=7)[0]
 	return outText
 
 def resize(img):
