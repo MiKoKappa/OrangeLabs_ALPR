@@ -45,11 +45,6 @@ def getPlates(img):
         raise Exception("No plates found!")
     
 def doALPR(img):
-	foundText = ""
-	x = 0
-	y = 0
-	h = 0
-	w = 0
 	temp = img
 	imgGray = cv2.cvtColor(temp, cv2.COLOR_BGR2GRAY)
 	[x, y, w, h] = getPlates(imgGray)
@@ -64,11 +59,11 @@ def doALPR(img):
 	cv2.imwrite("morph.png", morph)
 	foundText = getText("/home/pi/morph.png")
 	return foundText
-
-img = cv2.imread("image.png")
-outText = doALPR(img)
-if len(outText)==0:
-	raise Exception("Numbers not detected!")
-else:
-	print(outText)
-
+def main():
+    img = cv2.imread("image.png")
+    outText = doALPR(img)
+    if len(outText)==0:
+	    raise Exception("Numbers not detected!")
+    else:
+	    print(outText)
+main()
