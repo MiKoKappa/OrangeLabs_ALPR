@@ -44,8 +44,7 @@ def getPlates(img):
     else:
         raise Exception("No plates found!")
     
-def detect(img):
-	errorFlag = 1
+def doALPR(img):
 	foundText = ""
 	x = 0
 	y = 0
@@ -58,17 +57,16 @@ def detect(img):
 	roi_color = img[y+2:y+h-2, x+2:x+w-2]
 	cv2.rectangle(temp, (x, y), (x + w, y + h), color, 2)
 	cv2.putText(temp, "Tablica", (x, y - 8), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, color, 2)
+	cv2.imwrite("bbox.png",temp)
 	cv2.imwrite("result.png", roi_color)
 	resized = resize(roi_gray)
 	morph = getMorph(resized)
 	cv2.imwrite("morph.png", morph)
 	foundText = getText("/home/pi/morph.png")
-
-	cv2.imwrite("bbox.png",temp)
 	return foundText
 
 img = cv2.imread("image.png")
-outText = detect(img)
+outText = doALPR(img)
 if len(outText)==0:
 	raise Exception("Numbers not detected!")
 else:
